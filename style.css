@@ -1,0 +1,95 @@
+body {
+    background-color: aliceblue;
+}
+
+td {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    font-size: 35px;
+    border: 10px solid black;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: #eee;
+}
+
+.noborderR {
+    border-right: 0px;
+}
+
+.noborderL {
+    border-left: 0px;
+}
+
+.noborderT {
+    border-top: 0px;
+}
+
+.noborderB {
+    border-bottom: 0px;
+}
+
+.size {
+    width: 45px;
+    height: 45px;
+}
+
+.row {
+    display: flex;
+    margin: 0 -15px;
+    display: flex;
+    justify-content: flex-start
+}
+
+
+
+.score {
+    border: 1px solid #ccc;
+    padding: 7px;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+    background-color: rgb(243, 243, 159);
+}
+
+.score h3 {
+    margin-top: 0;
+}
+
+.score p {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.marginscore {
+    margin-left: 20px;
+}
+
+.rules {
+    margin-left: auto;
+    border: 1px solid #ccc;
+    padding: 7px;
+    text-align: center;
+    width: 482px;
+    background-color: rgb(243, 243, 159);
+    margin-right: 20px;
+
+}
+
+.rules p {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.velha {
+    margin: auto;
+    border-collapse: collapse;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
