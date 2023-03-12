@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Velha</title>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -18,6 +19,8 @@
 
                 <img src="imgs/X.png" class="size" alt="">
                 <p><span id="jogadorXVitorias"></span></p>
+                <p><span id="Atual"></span></p>
+                <img id="Atual">
 
             </div>
             <div class="score">
@@ -32,12 +35,30 @@
                 <p><span id="Velha"></span></p>
 
             </div>
-            <div id="x" class="rules marginscore">
+            <div class="rules marginscore">
                 <p>Regras</p>
                 <p>No modo básico do jogo, participam duas pessoas, que jogam alternadamente, preenchendo cada um dos
                     espaços vazios. Cada participante poderá usar um símbolo (X ou O). Vence o jogador que conseguir
                     formar primeiro uma linha com três símbolos iguais, seja ela na horizontal, vertical ou diagonal.
                 </p>
+                <form id="meu-formulario">
+                    <div class="row">
+                        <div class="textbox">
+                            <label>Jogador X:</label>
+                            <input id="NameX" type="text">
+                            <label>Nome Atual:</label>
+                            <p id="X"></p>
+                        </div>
+                        <div class="textbox">
+                            <label>Jogador O:</label>
+                            <input id="NameO" type="text">
+                            <label>Nome Atual:</label>
+                            <p id="O"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <button onclick="pegarValor()" type="submit">Atualizar</button>
+                </form>
             </div>
 
         </div>

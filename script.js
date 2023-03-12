@@ -5,12 +5,49 @@ var imgX = "imgs/X.png"; // substitua pelo caminho da imagem do X
 var imgO = "imgs/O.png";; // substitua pelo caminho da imagem do O
 var jogadorXVitorias = 0;
 var jogadorOVitorias = 0;
+var NameX = "X";
+var NameO = "O";
+var X = "X";
+var O = "O";
 var Velha = 0;
+
+
 function placar() {
     document.getElementById("jogadorXVitorias").textContent = jogadorXVitorias;
     document.getElementById("jogadorOVitorias").textContent = jogadorOVitorias;
     document.getElementById("Velha").textContent = Velha;
+
+
+    const formulario = document.querySelector('#meu-formulario');
+
+    formulario.addEventListener('submit', function (event) {
+        // Impede o comportamento padrão de envio do formulário
+        event.preventDefault();
+
+        // Obtenha os dados do formulário
+        const formData = new FormData(formulario);
+
+        // Use a função fetch para enviar os dados do formulário para o servidor
+        fetch('/url-do-seu-servidor', {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            // Manipule a resposta do servidor aqui
+        }).catch(error => {
+            // Manipule erros de envio aqui
+        });
+    });
 }
+
+function pegarValor() {
+    NameX = document.getElementById("NameX").value;
+    NameO = document.getElementById("NameO").value;
+
+    document.getElementById("X").textContent = NameX;
+    document.getElementById("O").textContent = NameO;
+
+}
+
 // Função que é chamada quando uma célula é clicada
 function jogarCelula(event) {
     var celula = event.target;
@@ -18,6 +55,7 @@ function jogarCelula(event) {
     document.getElementById("jogadorXVitorias").textContent = jogadorXVitorias;
     document.getElementById("jogadorOVitorias").textContent = jogadorOVitorias;
     document.getElementById("Velha").textContent = Velha;
+
     // Verifica se a célula já foi jogada
     if (tabuleiro[idCelula] !== "") {
         return;
@@ -78,18 +116,30 @@ function exibirResultado(resultado) {
     if (resultado == "X") {
         jogadorXVitorias++;
         document.getElementById("jogadorXVitorias").textContent = jogadorXVitorias;
-        alert("O jogador " + resultado + " venceu!");
+        Swal.fire(
+            `Jogador ${NameX} ganhou essa rodada`,
+            '',
+            'success'
+        )
     }
     if (resultado == "O") {
         jogadorOVitorias++;
         document.getElementById("jogadorOVitorias").textContent = jogadorOVitorias;
-        alert("O jogador " + resultado + " venceu!");
+        Swal.fire(
+            'Jogador ' + NameO + ' ganhou essa rodada',
+            '',
+            'success'
+        )
     }
     // Atualiza o contador de vitórias
     if (resultado == "Empate") {
         Velha++;
         document.getElementById("Velha").textContent = Velha;
-        alert(resultado);
+        Swal.fire(
+            'Deu Velha',
+            '',
+            'info'
+        )
     }
 
 

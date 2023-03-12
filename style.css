@@ -88,8 +88,66 @@ td:hover {
     margin: auto;
     border-collapse: collapse;
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
+}
+
+input[type="text"] {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+
+}
+
+#O {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-top: -1%;
+    color: rgb(0, 255, 13);
+
+}
+
+#X {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-top: -1%;
+}
+
+.textbox {
+    margin-left: 5%;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
