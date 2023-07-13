@@ -8,84 +8,144 @@
     <title>Jogo da Velha</title>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="style.css">
+
 
 </head>
 
 <body onload="placar()">
-    <table>
-        <div class="row">
-            <div class="score marginscore">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="row">
 
-                <img src="imgs/X.png" class="size" alt="">
-                <p><span id="jogadorXVitorias"></span></p>
-                <p><span id="Atual"></span></p>
-                <img id="Atual">
-
-            </div>
+        <div class="col-12 col-xl-3 col-md-6">
+            <br>
             <div class="score">
-
-                <img src="imgs/O.png" class="size" alt="">
-                <p><span id="jogadorOVitorias"></span></p>
-
-            </div>
-            <div class="score">
-
-                <img src="imgs/Velha.png" class="size" alt="">
-                <p><span id="Velha"></span></p>
-
-            </div>
-            <div class="rules marginscore">
-                <p>Regras</p>
-                <p>No modo básico do jogo, participam duas pessoas, que jogam alternadamente, preenchendo cada um dos
-                    espaços vazios. Cada participante poderá usar um símbolo (X ou O). Vence o jogador que conseguir
-                    formar primeiro uma linha com três símbolos iguais, seja ela na horizontal, vertical ou diagonal.
-                </p>
-                <form id="meu-formulario">
-                    <div class="row">
-                        <div class="textbox">
-                            <label>Jogador X:</label>
-                            <input id="NameX" type="text">
-                            <label>Nome Atual:</label>
-                            <p id="X"></p>
-                        </div>
-                        <div class="textbox">
-                            <label>Jogador O:</label>
-                            <input id="NameO" type="text">
-                            <label>Nome Atual:</label>
-                            <p id="O"></p>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="imgbox">
+                            <img src="imgs/X.png" class="size">
                         </div>
                     </div>
-                    <br>
-                    <button onclick="pegarValor()" type="submit">Atualizar</button>
-                </form>
+                    <div class="col-9">
+                        <p class="player-tittle">Jogador <span id="NameX"></span></p>
+                        <p class="point-tittle">Pontuação: <span id="jogadorXVitorias"></span></p>
+                    </div>
+                </div>
+
             </div>
-
+            <br>
+            <div class="score">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="imgbox">
+                            <img src="imgs/O.png" class="size">
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <p class="player-tittle">Jogador <span id="NameO"></span></p>
+                        <p class="point-tittle">Pontuação: <span id="jogadorOVitorias"></span></p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="score">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="imgbox">
+                            <img src="imgs/Velha.svg" class="size">
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <p class="player-tittle">Empate</p>
+                        <p class="point-tittle">Pontuação: <span id="Velha"></span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </table>
+        <div class="col-12 col-xl-6 col-md-6">
+            <div class="gamebox">
+                <table class="velha">
+                    <tr>
+                        <td id="0" onclick="jogarCelula(event)" class="cell noborderL noborderT"></td>
+                        <td id="1" onclick="jogarCelula(event)" class="cell noborderT"></td>
+                        <td id="2" onclick="jogarCelula(event)" class="cell noborderR noborderT"></td>
+                    </tr>
+                    <tr>
+                        <td id="3" onclick="jogarCelula(event)" class="cell noborderL "></td>
+                        <td id="4" onclick="jogarCelula(event)" class="cell"></td>
+                        <td id="5" onclick="jogarCelula(event)" class="cell noborderR"></td>
+                    </tr>
+                    <tr>
+                        <td id="6" onclick="jogarCelula(event)" class="cell noborderL noborderB"></td>
+                        <td id="7" onclick="jogarCelula(event)" class="cell noborderB"></td>
+                        <td id="8" onclick="jogarCelula(event)" class="cell noborderR noborderB"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-    <table class="velha">
-        <tr>
-            <td id="0" onclick="jogarCelula(event)" class="cell noborderL noborderT"></td>
-            <td id="1" onclick="jogarCelula(event)" class="cell noborderT"></td>
-            <td id="2" onclick="jogarCelula(event)" class="cell noborderR noborderT"></td>
-        </tr>
-        <tr>
-            <td id="3" onclick="jogarCelula(event)" class="cell noborderL "></td>
-            <td id="4" onclick="jogarCelula(event)" class="cell"></td>
-            <td id="5" onclick="jogarCelula(event)" class="cell noborderR"></td>
-        </tr>
-        <tr>
-            <td id="6" onclick="jogarCelula(event)" class="cell noborderL noborderB"></td>
-            <td id="7" onclick="jogarCelula(event)" class="cell noborderB"></td>
-            <td id="8" onclick="jogarCelula(event)" class="cell noborderR noborderB"></td>
-        </tr>
-    </table>
+        <div class="col-12 col-xl-3 col-md-6">
+            <div class="formbox">
+                <div class="row">
+                    <h1>Regras</h1>
+                    <div class="scroll-box">
+                        <div class="rules">
+                            <p>O jogo da velha é um jogo de tabuleiro simples para dois jogadores, que usa um tabuleiro
+                                3x3.
+                                Cada jogador escolhe um símbolo para jogar, geralmente "X" ou "O".
+                            </p>
+                            <p>O objetivo do jogo é conseguir colocar três símbolos iguais em linha reta: horizontal,
+                                vertical ou diagonal. O primeiro jogador a fazer isso é o vencedor.</p>
 
+                            <p>O objetivo do jogo é conseguir colocar três símbolos iguais em linha reta: horizontal,
+                                vertical ou diagonal. O primeiro jogador a fazer isso é o vencedor.</p>
+
+                            <p>As regras basicas do jogo são:</p>
+
+                            <p>1. O jogador que jogar primeiro escolhe uma célula vazia para colocar o seu simbolo</p>
+
+                            <p>2. Os jogadores alternam suas jogadas até que um jogador ganhe ou o jogo termine em
+                                empate.
+                            </p>
+
+                            <p>3. Um jogador não pode jogar em uma célula ja preenchida.</p>
+
+                            <p>4. O jogo termina assim que um jogador conseguir três simbolos iguais em linha reta.</p>
+
+                            <p>5. Se todas as células do tabuleiro forem preenchidas sem um vencedor, o jogo termina em
+                                Empate ou "Velha"</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <form id="meu-formulario">
+                        <div class="row">
+                            <div class="textbox">
+                                <br>
+                                <label>Jogador X:</label>
+                                <input class="form-control" id="NameX" type="text">
+                                <p id="X"></p>
+                            </div>
+                            <div class="textbox">
+                                <label>Jogador O:</label>
+                                <input class="form-control" id="NameO" type="text">
+                                <p id="O"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <button onclick="pegarValor()" type="submit">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="resultado"></p>
 
 
     </div>
-    <p id="resultado"></p>
+
 </body>
 
 </html>
